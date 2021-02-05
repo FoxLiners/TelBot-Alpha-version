@@ -1,0 +1,1133 @@
+import telebot
+import config
+import random
+import os
+import pyowm
+
+from telebot import types
+
+owm = pyowm.OWM('f9ace149b677768e6990bf88fdcf81cb')
+
+client = telebot.TeleBot('1232439610:AAF46UnuE8E-OaKU8sxNnFhTdm67xsYBCvw')
+
+smile1 = '😁'
+smile2 = '😃'
+smile3 = '😄'
+smile4 = '😆'
+smile5 = '😅'
+smile6 = '😂'
+smile7 = '🤣'
+smile8 = '😊'
+smile9 = '☺️'
+smile10 = '😇'
+smile11 = '🙂'
+smile12 = '🙃'
+smile13 = '😉'
+smile14 = '😌'
+smile15 = '😍'
+smile16 = '🥰'
+smile17 = '😘'
+smile18 = '😗'
+smile19 = '😙'
+smile20 = '😚'
+smile21 = '😋'
+smile22 = '😛'
+smile23 = '😝'
+smile24 = '😜'
+smile25 = '🤪'
+smile26 = '🤨'
+smile27 = '🧐'
+smile28 = '🤓'
+smile29 = '😎'
+smile30 = '🤩'
+smile31 = '🥳'
+smile32 = '😏'
+smile33 = '😒'
+smile34 = '😞'
+smile35 = '😔'
+smile36 = '😟'
+smile37 = '😕'
+smile38 = '🙁'
+smile39 = '☹️'
+smile40 = '😣'
+smile41 = '😫'
+smile42 = '😩'
+smile43 = '🥺'
+smile44 = '😢'
+smile45 = '😭'
+smile46 = '😤'
+smile47 = '😠'
+smile48 = '😡'
+smile49 = '🤬'
+smile50 = '🤯'
+smile51 = '😳'
+smile52 = '🥵'
+smile53 = '🥵'
+smile54 = '😱'
+smile55 = '😨'
+smile56 = '😰'
+smile57 = '😥'
+smile58 = '😓'
+smile59 = '🤗'
+smile61 = '🤔'
+smile62 = '🤭'
+smile63 = '🤫'
+smile64 = '🤥'
+smile65 = '😶'
+smile66 = '😐'
+smile67 = '😑'
+smile68 = '😬'
+smile69 = '🙄'
+smile71 = '😯'
+smile72 = '😦'
+smile73 = '😧'
+smile74 = '😮'
+smile75 = '😲'
+smile76 = '🥱'
+smile77 = '😴'
+smile78 = '🤤'
+smile79 = '😪'
+smile80 = '😵'
+smile81 = '🤐'
+smile82 = '🥴'
+smile83 = '🤢'
+smile84 = '🤮'
+smile85 = '🤧'
+smile86 = '😷'
+smile87 = '🤒'
+smile88 = '🤕'
+smile89 = '🤑'
+smile90 = '🤠'
+smile91 = '😈'
+smile92 = '👿'
+smile93 = '👹'
+smile94 = '👺'
+smile95 = '🤡'
+smile96 = '💩'
+smile97 = '👻'
+smile98 = '💀'
+smile99 = '☠️'
+smile100 = '👽'
+smile101 = '🤖'
+smile102 = '🎃'
+smile103 = '😺'
+smile104 = '😸'
+smile105 = '😹'
+smile106 = '😻'
+smile107 = '😼'
+smile108 = '😽'
+smile109 = '🙀'
+smile110 = '😿'
+smile111 = '😾'
+smile112 = '👐'
+smile113 = '🏼'
+smile114 = '🤲'
+smile115 = '🏿'
+smile116 = '🙌'
+smile117 = '🏿'
+smile118 = '👏'
+smile119 = '🏻'
+smile120 = '🤝'
+smile121 = '👍'
+smile122 = '🏼'
+smile123 = '👾'
+smile124 = '👎'
+smile125 = '👊'
+smile126 = '✊'
+smile127 = '🤛'
+smile128 = '🤜'
+smile129 = '🤞'
+smile130 = '✌️'
+smile131 = '🤟'
+smile132 = '🤘'
+smile133 = '👌'
+smile134 = '🤏'
+smile135 = '👈'
+smile136 = '👉'
+smile137 = '👆'
+smile138 = '👇'
+smile139 = '☝️'
+smile140 = '✋'
+smile141 = '🤚'
+smile142 = '🖐'
+smile143 = '🖖'
+smile144 = '👋'
+smile145 = '🤙'
+smile146 = '💪'
+smile147 = '🦾'
+smile148 = '🖕'
+smile149 = '✍️'
+smile150 = '🙏'
+smile151 = '🦶'
+smile152 = '🦵'
+smile153 = '🦿'
+smile154 = '💄'
+smile155 = '💋'
+smile156 = '👄'
+smile157 = '🦷'
+smile158 = '👅'
+smile159 = '👂'
+smile160 = '🦻'
+smile161 = '👃'
+smile162 = '👣'
+smile163 = '👁'
+smile164 = '👀'
+smile165 = '🧠'
+smile166 = '🗣'
+smile167 = '👤'
+smile168 = '👥'
+smile169 = '👶'
+smile170 = '👧'
+smile171 = '🧒'
+smile172 = '👦'
+smile173 = '👩'
+smile174 = '🧑'
+smile175 = '👨'
+smile176 = '👩‍🦱'
+smile177 = '🧑‍🦱'
+smile178 = '👨‍🦱'
+smile179 = '👩‍🦰'
+smile180 = '👮‍♂️'
+smile181 = '👮'
+smile182 = '👮‍♀️'
+smile183 = '👳‍♀️'
+smile184 = '👵'
+smile185 = '🧑‍🦳'
+smile186 = '👨‍🦳'
+smile187 = '👨‍🦲'
+smile188 = '🧑‍🦲'
+smile189 = '👱‍♀️'
+smile190 = '🧕'
+smile191 = '👳‍♂️'
+smile192 = '👷‍♀️'
+smile193 = '👷'
+smile194 = '👷‍♂️'
+smile195 = '💂‍♀️'
+smile196 = '💂'
+smile197 = '💂‍♂️'
+smile198 = '🕵️‍♀️'
+smile199 = '👩‍⚕️'
+smile200 = '🧑‍⚕️'
+smile201 = '👩‍🌾'
+smile203 = '👩‍🍳'
+smile204 = '👩‍🎓'
+smile205 = '👩‍🎤'
+smile206 = '🧑‍🎤'
+smile207 = '👨‍🎤'
+smile208 = '👩‍💻'
+smile209 = '👨‍🏭'
+smile210 = '👩‍🏭'
+smile212 = '👨‍🏫'
+smile213 = '🧑‍🏫'
+smile214 = '👩‍🏫'
+random_item = (smile1, smile2, smile3, smile4, smile6, smile7, smile8, smile9, smile10, smile11, smile12, smile13, smile14, smile15, smile16, smile17, smile18, smile19, smile20, smile21,smile22, smile23, smile24, smile25, smile26, smile27,smile28, smile29, smile30, smile31, smile32, smile33, smile34, smile35, smile36, smile37, smile38, smile39, smile40, smile41, smile42, smile43, smile44, smile45, smile46, smile47, smile48, smile49, smile50, smile51,  smile52, smile53, smile54, smile55, smile56, smile57, smile58, smile59, smile61, smile62, smile63, smile64, smile65, smile66, smile67, smile68, smile69, smile71, smile72, smile73, smile74, smile75, smile76, smile77, smile78, smile79, smile80, smile81, smile82, smile83, smile84, smile85, smile86, smile87, smile88, smile89, smile90, smile91, smile92, smile93, smile94, smile95, smile96, smile97, smile98, smile99, smile100, smile101, smile102, smile103, smile104, smile105, smile106, smile107, smile108, smile109, smile110, smile111, smile112, smile113, smile114, smile115, smile116, smile117, smile118, smile119, smile120, smile121, smile122, smile123, smile124, smile125, smile126, smile127, smile128, smile129, smile130, smile131, smile132, smile133, smile134, smile135, smile136, smile137, smile138, smile139, smile140, smile141, smile142, smile143, smile144, smile145, smile146, smile147, smile148, smile149, smile150, smile151, smile152, smile153, smile154, smile155, smile156, smile157, smile158, smile159, smile160, smile161, smile162, smile163, smile164, smile165, smile166, smile167, smile168, smile169, smile170, smile171, smile172, smile173, smile174, smile175, smile176, smile177, smile178, smile179, smile180, smile181, smile182, smile183, smile184, smile185, smile186, smile187, smile188, smile189, smile190, smile191, smile192, smile193, smile194, smile195, smile196, smile197, smile198, smile199, smile200, smile201, smile203, smile204, smile205, smile206, smile207, smile208, smile209, smile210, smile212, smile213, smile214,) 
+
+@client.message_handler(commands = ['get_info', 'info'])
+def get_user_info(message):
+	markup_inline = types.InlineKeyboardMarkup()
+	item_yes = types.InlineKeyboardButton(text = 'ДА', callback_data = 'yes')
+	item_no = types.InlineKeyboardButton(text = 'НЕТ', callback_data = 'no')
+
+	markup_inline.add(item_yes, item_no)
+	client.send_message(message.chat.id, 'Желаете узнать небольшую информацию о вас?',
+		reply_markup = markup_inline
+	)
+
+@client.callback_query_handler(func = lambda call: True)	
+def on_answer(call):
+	if call.data == 'yes':
+		markup_reply = types.ReplyKeyboardMarkup(resize_keyboard = True)
+		item_id = types.KeyboardButton('МОЙ ID')
+		item_username = types.KeyboardButton('МОЙ НИК')
+
+		markup_reply.add(item_id, item_username)
+		client.send_message(call.message.chat.id, 'Нажмите на одну из кнопок',
+				reply_markup = markup_reply
+		)
+	elif call.data == 'no':
+		pass
+
+@client.message_handler(content_types=["text"])
+def send_echo(message):
+    mgr = owm.weather_manager()
+    observation = mgr.weather_at_place('Ukraine')
+    w = observation.weather
+
+    if message.text == 'МОЙ ID':
+	    client.send_message(message.chat.id, f'Your ID: {message.from_user.id}')
+    elif message.text == 'МОЙ НИК':
+	    client.send_message(message.chat.id, f'Your NICNAME: {message.from_user.first_name} {message.from_user.last_name}')	
+    elif message.text.lower() == 'привет':
+	    client.send_message(message.chat.id, 'Приветики😘')
+    elif message.text.lower() == 'как дела?':
+	    client.send_message(message.chat.id, 'Та все путем, как сам?🙃')
+    elif message.text.lower() == 'кто тебя создал?':
+	    client.send_message(message.chat.id, 'Рукожоп😫')
+    elif message.text.lower() == 'c':
+        client.send_message(message.chat.id, str(random.randint(0,300)))
+    elif message.text.lower() == 'как тебя зовут?':
+	    client.send_message(message.chat.id, 'для тебя можно просто раб😎')
+    elif message.text.lower() == 'сколько тебе лет?':
+	    client.send_message(message.chat.id, 'Меньше чем тебе')
+    elif message.text.lower() == 'пока':
+	    client.send_message(message.chat.id, 'Покакаеш дома!...Когда наступил тот переломный момент когда я начал вести себя как долбоеб...А! Он же и не наступал!...😟')
+    elif message.text.lower() == 'help':
+	    client.send_message(message.chat.id, 'Мои фукции:\n и заранее знай вводить надо букву которая стоит в начале кроме j вместо нее пиши /info \n Запомнил? надеюсь ну погнали...\nДля начала нашего общения введи /start\na) Посоветовать игру\nb) Погода (Украина)\nc) Рандомное число\nd) Рандомное эмодзи\ne) Ссылки\nf) Общение \ng) Секрет!\nh) Цитаты\ni) Посоветовать обои на раб. стол\nj)Чтобы узнать свой IP введи /info\nk) визитка')
+    elif message.text.lower() == 'k':
+	    client.send_message(message.chat.id, 'Имя - Rab\nНикнейм - Butulkabot\nДата рождения - 25.09.2020\nСтатус - Бот') 
+    elif message.text.lower() == 'a':
+        client.send_message(message.chat.id, 'Введите этуже букво только с цифрой от одного до ста например-a1,a57,a39,a100') 
+    elif message.text.lower() == 'a1':
+        client.send_message(message.chat.id, 'The Elder Scrolls 5: Skyrim')
+    elif message.text.lower() == 'a2':
+        client.send_message(message.chat.id, 'Grand Theft Auto 5')
+    elif message.text.lower() == 'a3':
+        client.send_message(message.chat.id, 'Grand Theft Auto 4')
+    elif message.text.lower() == 'a4':
+        client.send_message(message.chat.id, 'Grand Theft Auto: San Andreas')
+    elif message.text.lower() == 'a5':
+        client.send_message(message.chat.id, 'Assassins Creed 2')
+    elif message.text.lower() == 'a6':
+        client.send_message(message.chat.id, 'Mass Effect 2')
+    elif message.text.lower() == 'a7':
+        client.send_message(message.chat.id, 'Mafia 2')
+    elif message.text.lower() == 'a8':
+        client.send_message(message.chat.id, 'Far Cry 3')
+    elif message.text.lower() == 'a9':
+        client.send_message(message.chat.id, 'Call of Duty: Modern Warfare 2')
+    elif message.text.lower() == 'a10':
+        client.send_message(message.chat.id, 'Battlefield 3')
+    elif message.text.lower() == 'a11':
+        client.send_message(message.chat.id, 'Mass Effect')
+    elif message.text.lower() == 'a12':
+        client.send_message(message.chat.id, 'Need for Speed: Most Wanted')
+    elif message.text.lower() == 'a13':
+        client.send_message(message.chat.id, 'Mass Effect 3')
+    elif message.text.lower() == 'a14':
+        client.send_message(message.chat.id, 'Fallout 3')
+    elif message.text.lower() == 'a15':
+        client.send_message(message.chat.id, 'Assassins Creed')
+    elif message.text.lower() == 'a16':
+        client.send_message(message.chat.id, 'Portal 2')
+    elif message.text.lower() == 'a17':
+        client.send_message(message.chat.id, 'Dragon Age: Origins')
+    elif message.text.lower() == 'a18':
+        client.send_message(message.chat.id, 'Half-Life 2')
+    elif message.text.lower() == 'a19':
+        client.send_message(message.chat.id, 'Watch Dogs')
+    elif message.text.lower() == 'a20':
+        client.send_message(message.chat.id, 'Call of Duty: Black Ops')
+    elif message.text.lower() == 'a21':
+        client.send_message(message.chat.id, 'Assassins Creed  Brotherhood ')
+    elif message.text.lower() == 'a22':
+        client.send_message(message.chat.id, 'Assassins Creed Revelations')
+    elif message.text.lower() == 'a23':
+        client.send_message(message.chat.id, 'Assassins Creed 3')
+    elif message.text.lower() == 'a24':
+        client.send_message(message.chat.id, 'StarCraft Wings of Liberty')
+    elif message.text.lower() == 'a25':
+        client.send_message(message.chat.id, 'StarCraft II: Heart of the Swarm')
+    elif message.text.lower() == 'a26':
+        client.send_message(message.chat.id, 'StarCraft II: Legacy of the Void')
+    elif message.text.lower() == 'a27':
+        client.send_message(message.chat.id, 'STALKER Чистое небо')
+    elif message.text.lower() == 'a28':
+        client.send_message(message.chat.id, 'Call of Duty: World at War')
+    elif message.text.lower() == 'a29':
+        client.send_message(message.chat.id, 'Принц Персии - Забытые пески')
+    elif message.text.lower() == 'a30':
+        client.send_message(message.chat.id, 'Frontlines - Fuel of War')
+    elif message.text.lower() == 'a31':
+        client.send_message(message.chat.id, 'Mount and Blade История героя')
+    elif message.text.lower() == 'a32':
+        client.send_message(message.chat.id, 'Homefront')
+    elif message.text.lower() == 'a33':
+        client.send_message(message.chat.id, 'Quantum of Solace')
+    elif message.text.lower() == 'a34':
+        client.send_message(message.chat.id, 'Fate')
+    elif message.text.lower() == 'a35':
+        client.send_message(message.chat.id, 'Minecraft')
+    elif message.text.lower() == 'a36':
+        client.send_message(message.chat.id, 'Call of Duty: Modern Warfare')
+    elif message.text.lower() == 'a37':
+        client.send_message(message.chat.id, 'Call of Duty: Modern Warfare 3')
+    elif message.text.lower() == 'a38':
+        client.send_message(message.chat.id, 'Portal')
+    elif message.text.lower() == 'a39':
+        client.send_message(message.chat.id, 'Sniper Ghost Warrior 1')
+    elif message.text.lower() == 'a40':
+        client.send_message(message.chat.id, 'Call of Duty Advanced Warfare')
+    elif message.text.lower() == 'a41':
+        client.send_message(message.chat.id, 'Call of Duty Ghosts')
+    elif message.text.lower() == 'a42':
+        client.send_message(message.chat.id, 'Assassins Creed Chronicles China')
+    elif message.text.lower() == 'a43':
+        client.send_message(message.chat.id, 'Crysis 3 ')
+    elif message.text.lower() == 'a44':
+        client.send_message(message.chat.id, 'Just Cause 2')
+    elif message.text.lower() == 'a45':
+        client.send_message(message.chat.id, 'Battlefield 1')
+    elif message.text.lower() == 'a46':
+        client.send_message(message.chat.id, 'Goat Simulator')
+    elif message.text.lower() == 'a47':
+        client.send_message(message.chat.id, 'Crysis 2 Maximum Edition')
+    elif message.text.lower() == 'a48':
+        client.send_message(message.chat.id, 'Diablo 3 стартовая версия')
+    elif message.text.lower() == 'a49':
+        client.send_message(message.chat.id, 'Revelfield')
+    elif message.text.lower() == 'a50':
+        client.send_message(message.chat.id, 'The Stanley Parable')
+    elif message.text.lower() == 'a51':
+        client.send_message(message.chat.id, 'Just Cause 3')
+    elif message.text.lower() == 'a52':
+        client.send_message(message.chat.id, 'Call of Duty 2')
+    elif message.text.lower() == 'a53':
+        client.send_message(message.chat.id, 'The Forest')
+    elif message.text.lower() == 'a54':
+        client.send_message(message.chat.id, 'Tomb Raider 2013')
+    elif message.text.lower() == 'a55':
+        client.send_message(message.chat.id, 'Rise of the Tomb Raider')
+    elif message.text.lower() == 'a56':
+        client.send_message(message.chat.id, 'Bioshock Infinite')
+    elif message.text.lower() == 'a57':
+        client.send_message(message.chat.id, 'Tom Clancys Rainbow Six Siege')
+    elif message.text.lower() == 'a58':
+        client.send_message(message.chat.id, 'Crysis Warhead')
+    elif message.text.lower() == 'a59':
+        client.send_message(message.chat.id, 'Call of Duty Black Ops 2')
+    elif message.text.lower() == 'a60':
+        client.send_message(message.chat.id, 'Mad Max')
+    elif message.text.lower() == 'a61':
+        client.send_message(message.chat.id, 'Call of Duty Black Ops III')
+    elif message.text.lower() == 'a62':
+        client.send_message(message.chat.id, 'Call of Duty')
+    elif message.text.lower() == 'a63':
+        client.send_message(message.chat.id, 'Cluster track')
+    elif message.text.lower() == 'a64':
+        client.send_message(message.chat.id, 'Assassins Creed IV Black Flag')
+    elif message.text.lower() == 'a65':
+        client.send_message(message.chat.id, 'Clone Drone in the Danger Zone')
+    elif message.text.lower() == 'a66':
+        client.send_message(message.chat.id, 'Assassins Creed Liberation')
+    elif message.text.lower() == 'a67':
+        client.send_message(message.chat.id, 'The incredible hulk')
+    elif message.text.lower() == 'a68':
+        client.send_message(message.chat.id, 'Assassins Creed - Freedom Cry')
+    elif message.text.lower() == 'a69':
+        client.send_message(message.chat.id, 'PaintTheTownRed')
+    elif message.text.lower() == 'a70':
+        client.send_message(message.chat.id, 'Assassins Creed Rogue')
+    elif message.text.lower() == 'a71':
+        client.send_message(message.chat.id, 'Assassins Creed Unity')
+    elif message.text.lower() == 'a72':
+        client.send_message(message.chat.id, 'World War Z')
+    elif message.text.lower() == 'a73':
+        client.send_message(message.chat.id, 'StarCraft II: Nova Covert Ops')
+    elif message.text.lower() == 'a74':
+        client.send_message(message.chat.id, 'South Park - The Stick of Truth')
+    elif message.text.lower() == 'a75':
+        client.send_message(message.chat.id, 'Spec Ops The Line')
+    elif message.text.lower() == 'a76':
+        client.send_message(message.chat.id, 'Dead Space 2')
+    elif message.text.lower() == 'a77':
+        client.send_message(message.chat.id, 'My Friend Pedro')
+    elif message.text.lower() == 'a78':
+        client.send_message(message.chat.id, 'Metro 2033 Redux')
+    elif message.text.lower() == 'a79':
+        client.send_message(message.chat.id, 'Metro Last Light Redux')
+    elif message.text.lower() == 'a80':
+        client.send_message(message.chat.id, 'Crysis')
+    elif message.text.lower() == 'a81':
+        client.send_message(message.chat.id, 'STALKER Call of Pripyat')
+    elif message.text.lower() == 'a82':
+        client.send_message(message.chat.id, 'Dying Light ')
+    elif message.text.lower() == 'a83':
+        client.send_message(message.chat.id, 'STALKER Shadow of Chernobyl')
+    elif message.text.lower() == 'a84':
+        client.send_message(message.chat.id, 'Gta Online')
+    elif message.text.lower() == 'a85':
+        client.send_message(message.chat.id, 'Resident Evil - Revelations')
+    elif message.text.lower() == 'a86':
+        client.send_message(message.chat.id, 'Saints Row 4')
+    elif message.text.lower() == 'a87':
+        client.send_message(message.chat.id, 'Sniper Ghost Warrior 2')
+    elif message.text.lower() == 'a88':
+        client.send_message(message.chat.id, 'World of Thanks')
+    elif message.text.lower() == 'a89':
+        client.send_message(message.chat.id, 'World of Warships')
+    elif message.text.lower() == 'a90':
+        client.send_message(message.chat.id, 'Crossout')
+    elif message.text.lower() == 'a91':
+        client.send_message(message.chat.id, 'Crysis Remastered')
+    elif message.text.lower() == 'a92':
+        client.send_message(message.chat.id, 'Metro Exodus (Метро Исход)')
+    elif message.text.lower() == 'a93':
+        client.send_message(message.chat.id, 'Red Dead Redemption 2')
+    elif message.text.lower() == 'a94':
+        client.send_message(message.chat.id, 'The Witcher 3 Wild Hunt (Ведьмак 3 Дикая Охота)')
+    elif message.text.lower() == 'a95':
+        client.send_message(message.chat.id, 'Star Wars Jedi Fallen Order')
+    elif message.text.lower() == 'a96':
+        client.send_message(message.chat.id, 'Control')
+    elif message.text.lower() == 'a97':
+        client.send_message(message.chat.id, 'Watch Dogs 2')
+    elif message.text.lower() == 'a98':
+        client.send_message(message.chat.id, 'Borderlands 3')
+    elif message.text.lower() == 'a99':
+        client.send_message(message.chat.id, 'Warcraft 3 Frozen Throne')
+    elif message.text.lower() == 'a100':
+        client.send_message(message.chat.id, 'Mass Effect Andromeda')
+    elif message.text.lower() == 'h':
+        client.send_message(message.chat.id, 'Введите h с одним из чисел от 1 до 100 например- h14,h79,h100')
+    elif message.text.lower() == 'h1':
+        client.send_message(message.chat.id, 'Жизнь – нелегкое занятие, а труднее всего первые сто лет – Уилсон Мизнер')
+    elif message.text.lower() == 'h2':
+        client.send_message(message.chat.id, 'Жизнь – это больница, где каждый пациент мечтает перебраться на другую кровать – Шарль Бодлер')
+    elif message.text.lower() == 'h3':
+        client.send_message(message.chat.id, 'Самые лучшие в мире вещи невозможно увидеть или потрогать руками. Их можно только почувствовать – Хелен Келлер')
+    elif message.text.lower() == 'h4':
+        client.send_message(message.chat.id, 'Жизнь – это череда маленьких шагов – Хота Котб')
+    elif message.text.lower() == 'h5':
+        client.send_message(message.chat.id, 'Научись любить себя и все остальное станет на свои места – Люсиль Бол')
+    elif message.text.lower() == 'h6':
+        client.send_message(message.chat.id, 'Не стоит тратить на это даже пяти минут, если ты не готов потратить на это 5 лет – Меган Маркл')
+    elif message.text.lower() == 'h7':
+        client.send_message(message.chat.id, 'Что дается легко не будет длиться долго. А то, что длиться долго не дается легко – Неизвестный автор')
+    elif message.text.lower() == 'h8':
+        client.send_message(message.chat.id, 'Тот, кто не верит в чудеса, никогда его и не получит – Роальд Даль')
+    elif message.text.lower() == 'h9':
+        client.send_message(message.chat.id, 'Жизнь – это путешествие, а не дом – Феликс Фельдхайм')
+    elif message.text.lower() == 'h10':
+        client.send_message(message.chat.id, 'Жизнь слишком коротка, чтобы делать то, что не нравится – Ричард Брэнсон')
+    elif message.text.lower() == 'h11':
+        client.send_message(message.chat.id, 'Жизнь – это вопрос времени – Владимир Резников')
+    elif message.text.lower() == 'h12':
+        client.send_message(message.chat.id, 'Жизнь как депеша: короткая и полная ошибок – Ханна Журк')
+    elif message.text.lower() == 'h13':
+        client.send_message(message.chat.id, 'Жизнь вещь грубая. Ты вышел в долгий путь, – значит, где-то и поскользнешься, и получишь пинок, и упадешь, и устанешь, и воскликнешь «умереть бы!», и стало быть, солжешь – Сенека')
+    elif message.text.lower() == 'h14':
+        client.send_message(message.chat.id, 'Жизнь – это по большей части то, что происходит в другом месте – Алан Беннет')
+    elif message.text.lower() == 'h14':
+        client.send_message(message.chat.id, 'Жизнь – это то, что случается с нами, пока мы строим планы на будущее – Томас Ла Манс')
+    elif message.text.lower() == 'h15':
+        client.send_message(message.chat.id, 'Жизнь как луковица: снимаешь слой за слоем, а под конец обнаруживаешь, что внутри ничего нет – Джеймс Гиббонз Хьюнекер')
+    elif message.text.lower() == 'h16':
+        client.send_message(message.chat.id, 'Жизнь – игрушка настолько глупая, что ее дарят только младенцам – Билл Манвилл')
+    elif message.text.lower() == 'h17':
+        client.send_message(message.chat.id, 'Жизнь – подарок, которого мы не просили – Альфред Конар')
+    elif message.text.lower() == 'h18':
+        client.send_message(message.chat.id, '„Самое интересное в снах — они собирают в подсознании все вещи, которые, собственно, не подходят друг другу, как будто ты сам снимаешь свое собственное кино. Иногда просыпаешься после сна о человеке, с которым не виделся уже лет пять, а такое ощущение, что он был прямо здесь и сейчас. Я считаю, что таким образом наше подсознание играет с нами, обманывает нас. Не думаю, что во снах можно увидеть свое будущее.“')
+    elif message.text.lower() == 'h19':
+        client.send_message(message.chat.id, '„Счастливая жизнь начинается со спокойствия ума.“ —  Марк Туллий Цицерон')
+    elif message.text.lower() == 'h20':
+        client.send_message(message.chat.id, 'Все мы гении. Но если вы будете судить рыбу по её способности взбираться на дерево, она проживёт всю жизнь, считая себя дурой.')
+    elif message.text.lower() == 'h21':
+        client.send_message(message.chat.id, 'Не бывает безвыходных ситуаций. Бывают ситуации, выход из которых тебя не устраивает.')
+    elif message.text.lower() == 'h22':
+        client.send_message(message.chat.id, 'Нужно иметь что-то общее, чтобы понимать друг друга, и чем-то отличаться, чтобы любить друг друга.')
+    elif message.text.lower() == 'h23':
+        client.send_message(message.chat.id, '... самый страшный гнев, гнев бессилия.')
+    elif message.text.lower() == 'h24':
+        client.send_message(message.chat.id, 'Я не боюсь исчезнуть. Прежде, чем я родился, меня не было миллиарды и миллиарды лет, и я нисколько от этого не страдал.')
+    elif message.text.lower() == 'h25':
+        client.send_message(message.chat.id, 'Пройдите мимо нас и простите нам наше счастье.')
+    elif message.text.lower() == 'h26':
+        client.send_message(message.chat.id, 'Несчастным или счастливым человека делают только его мысли, а не внешние обстоятельства. Управляя своими мыслями, он управляет своим счастьем.')
+    elif message.text.lower() == 'h27':
+        client.send_message(message.chat.id, 'Лучше молчать и показаться дураком, чем заговорить и развеять все сомнения.(Лучше хранить молчание и считаться дураком, чем раскрыть рот и оказаться им.)')
+    elif message.text.lower() == 'h28':
+        client.send_message(message.chat.id, 'Задумчивая душа склоняется к одиночеству.')
+    elif message.text.lower() == 'h29':
+        client.send_message(message.chat.id, 'Красота есть во всем, но не всем дано это видеть.')
+    elif message.text.lower() == 'h30':
+        client.send_message(message.chat.id, '(Каждая вещь имеет красоту, но не каждый её видит.)')
+    elif message.text.lower() == 'h31':
+        client.send_message(message.chat.id, 'Если у тебя есть человек, которому можно рассказать сны, ты не имеешь права считать себя одиноким...')
+    elif message.text.lower() == 'h32':
+        client.send_message(message.chat.id, 'Если тебе плюют в спину, значит ты впереди.')
+    elif message.text.lower() == 'h33':
+        client.send_message(message.chat.id, 'Учитесь, пока другие спят, работайте, пока другие отдыхают, будьте готовы, пока другие расслабляются и мечтайте, пока другие плачутся.')
+    elif message.text.lower() == 'h34':
+        client.send_message(message.chat.id, 'Любовь не терпит объяснений. Ей нужны поступки.')
+    elif message.text.lower() == 'h35':
+        client.send_message(message.chat.id, 'Проблемы не могут быть решены на том же уровне мышления, который создал их.(Ты никогда не решишь проблему, если будешь думать так же, как те, кто ее создал.)(Вы никогда не сумеете решить возникшую проблему, если сохраните то же мышление и тот же подход, который привёл вас к этой проблеме.)')
+    elif message.text.lower() == 'h36':
+        client.send_message(message.chat.id, 'Они научили меня ценить верность... И никогда не забывать о тех, кого любишь.')
+    elif message.text.lower() == 'h37':
+        client.send_message(message.chat.id, 'Уважай себя настолько, чтобы не отдавать всех сил души и сердца тому, кому они не нужны...(Уважай себя настолько, чтобы не отдавать всех сил души и сердца тому, кому они не нужны и в ком это вызвало бы только пренебрежение.)')
+    elif message.text.lower() == 'h38':
+        client.send_message(message.chat.id, 'Люди сами себе устраивают проблемы — никто не заставляет их выбирать скучные профессии, жениться не на тех людях или покупать неудобные туфли.')
+    elif message.text.lower() == 'h39':
+        client.send_message(message.chat.id, 'У всякого безумия есть своя логика.')
+    elif message.text.lower() == 'h40':
+        client.send_message(message.chat.id, 'В шахматах это называется «цугцванг», когда оказывается, что самый полезный ход — никуда не двигаться.')
+    elif message.text.lower() == 'h41':
+        client.send_message(message.chat.id, 'Уметь выносить одиночество и получать от него удовольствие — великий дар.')
+    elif message.text.lower() == 'h42':
+        client.send_message(message.chat.id, 'Дайте человеку всё, чего он желает, и в ту же минуту он почувствует, что это всё не есть всё')
+    elif message.text.lower() == 'h43':
+        client.send_message(message.chat.id, 'Проблема этого мира в том, что глупцы и фанатики слишком уверены в себе, а умные люди полны сомнений.')
+    elif message.text.lower() == 'h44':
+        client.send_message(message.chat.id, 'Лучше быть одной, чем несчастной с кем-то.')
+    elif message.text.lower() == 'h45':
+        client.send_message(message.chat.id, 'Окружающим легко сказать: «Не принимай близко к сердцу». Откуда им знать, какова глубина твоего сердца? И где для него — близко?')
+    elif message.text.lower() == 'h46':
+        client.send_message(message.chat.id, 'Молчание — самое совершенное выражение презрения.')
+    elif message.text.lower() == 'h47':
+        client.send_message(message.chat.id, 'Настоящий друг с тобой, когда ты не прав. Когда ты прав, всякий будет с тобой.')
+    elif message.text.lower() == 'h48':
+        client.send_message(message.chat.id, 'Мы не хозяева собственной жизни. Мы связаны с другими прошлым и настоящим. И каждый проступок, как и каждое доброе дело, рождают новое будущее.')
+    elif message.text.lower() == 'h49':
+        client.send_message(message.chat.id, 'Чтобы выигрывать, прежде всего нужно играть.')
+    elif message.text.lower() == 'h50':
+        client.send_message(message.chat.id, 'Когда у тебя ничего нет, нечего и терять.')
+    elif message.text.lower() == 'h51':
+        client.send_message(message.chat.id, 'Для того, чтобы понять, что счастье не в деньгах, нужно сперва узнать и то, и другое – счастье и деньги.')
+    elif message.text.lower() == 'h52':
+        client.send_message(message.chat.id, 'Есть только две бесконечные вещи: Вселенная и глупость. Хотя насчет Вселенной я не уверен.(Две вещи бесконечны: вселенная и человеческая глупость; и я еще не уверен насчет вселенной.)')
+    elif message.text.lower() == 'h53':
+        client.send_message(message.chat.id, 'Глуп тот человек, который никогда не меняет своего мнения.')
+    elif message.text.lower() == 'h54':
+        client.send_message(message.chat.id, 'Когда игра заканчивается, король и пешка падают в одну и ту же коробку.')
+    elif message.text.lower() == 'h55':
+        client.send_message(message.chat.id, 'Я верю в одну вещь. Всегда нужно признаваться в любви тому, кого любишь.')
+    elif message.text.lower() == 'h56':
+        client.send_message(message.chat.id, 'Хочешь, чтоб люди сочли тебя психом — скажи правду.')
+    elif message.text.lower() == 'h57':
+        client.send_message(message.chat.id, 'Секрет быть скучным состоит в умении рассказать о себе всё.')
+    elif message.text.lower() == 'h58':
+        client.send_message(message.chat.id, 'Депрессия не признак слабости — это признак того, что вы пытались быть сильным слишком долго...')
+    elif message.text.lower() == 'h59':
+        client.send_message(message.chat.id, 'Я всё равно ни о чём не жалею – хотя бы потому, что это бессмысленно.')
+    elif message.text.lower() == 'h60':
+        client.send_message(message.chat.id, 'лько в те мгновения, когда вы видите людей смешными, вы действительно понимаете, как сильно вы их любите!')
+    elif message.text.lower() == 'h61':
+        client.send_message(message.chat.id, 'Когда ты одинок — это не значит, что ты слабый. Это значит, ты достаточно сильный, чтобы ждать то, что ты заслуживаешь.')
+    elif message.text.lower() == 'h62':
+        client.send_message(message.chat.id, 'Теперь, когда мы научились летать по воздуху как птицы, плавать под водой как рыбы, нам не хватает только одного: научиться жить на земле как люди.')
+    elif message.text.lower() == 'h63':
+        client.send_message(message.chat.id, 'Влюбляешься ведь только в чужое, родное — любишь.')
+    elif message.text.lower() == 'h64':
+        client.send_message(message.chat.id, 'Когда что-то понимаешь, то жить становится легче. А когда что-то почувствуешь — то тяжелее. Но почему-то всегда хочется почувствовать, а не понять!')
+    elif message.text.lower() == 'h65':
+        client.send_message(message.chat.id, 'Я не знаю, куда попадают люди после смерти, но я точно знаю, где они остаются. Те, кого ты любишь, всегда с тобой.')
+    elif message.text.lower() == 'h66':
+        client.send_message(message.chat.id, 'Подозревать, хуже чем знать. У реальности есть границы, а воображение безгранично!')
+    elif message.text.lower() == 'h67':
+        client.send_message(message.chat.id, 'Чувства людей гораздо интереснее их мыслей.')
+    elif message.text.lower() == 'h68':
+        client.send_message(message.chat.id, 'Правильного выбора в реальности не существует — есть только сделанный выбор и его последствия.')
+    elif message.text.lower() == 'h69':
+        client.send_message(message.chat.id, 'Ты не научишься кататься на коньках, если боишься быть смешным. Лёд жизни скользок.')
+    elif message.text.lower() == 'h70':
+        client.send_message(message.chat.id, 'Полное доверие граничит с безумием.')
+    elif message.text.lower() == 'h71':
+        client.send_message(message.chat.id, 'Тот факт, что будильник не прозвенел, изменил уже много человеческих судеб.')
+    elif message.text.lower() == 'h72':
+        client.send_message(message.chat.id, 'Кто в верности не клялся никогда, тот никогда её и не нарушит.')
+    elif message.text.lower() == 'h73':
+        client.send_message(message.chat.id, 'Не бойтесь врагов, бойтесь друзей. Предают друзья, а не враги!')
+    elif message.text.lower() == 'h74':
+        client.send_message(message.chat.id, 'Люди забираются в скорые поезда, но они сами не понимают, чего они ищут, поэтому они не знают покоя, бросаются то в одну сторону, а то в другую… И все напрасно… Глаза слепы. Искать надо сердцем.')
+    elif message.text.lower() == 'h75':
+        client.send_message(message.chat.id, 'Если что-то и стоит делать, так только то, что принято считать невозможным.')
+    elif message.text.lower() == 'h76':
+        client.send_message(message.chat.id, 'Отвернутся — значит не любили.')
+    elif message.text.lower() == 'h77':
+        client.send_message(message.chat.id, 'Окончательная разлука между двумя людьми никогда не случается, если не смирились оба.')
+    elif message.text.lower() == 'h78':
+        client.send_message(message.chat.id, 'Только тот по-настоящему счастлив и велик, кому не нужно ни подчиняться, ни приказывать для того, чтобы представлять собой что-то.')
+    elif message.text.lower() == 'h79':
+        client.send_message(message.chat.id, 'Книги – только одно из вместилищ, где мы храним то, что боимся забыть. В них нет никакой тайны, никакого волшебства. Волшебство лишь в том, что они говорят, в том, как они сшивают лоскутки вселенной в единое целое.')
+    elif message.text.lower() == 'h80':
+        client.send_message(message.chat.id, 'Главное – нельзя бояться, что ничего не выйдет.')
+    elif message.text.lower() == 'h81':
+        client.send_message(message.chat.id, 'Тот, кто знает и делает вид незнающего, тот на высоте. Кто без знаний делает вид знающего, тот больной.')
+    elif message.text.lower() == 'h82':
+        client.send_message(message.chat.id, 'Сами по себе мы ничего не значим. Не мы важны, а то, что мы храним в себе.')
+    elif message.text.lower() == 'h83':
+        client.send_message(message.chat.id, 'Всегда кажется, что нас любят за то, что мы хороши. А не догадываемся, что любят нас оттого, что хороши те, кто нас любит.')
+    elif message.text.lower() == 'h84':
+        client.send_message(message.chat.id, 'Не жалей умерших. Жалей живых, и в особенности тех, кто живет без любви.')
+    elif message.text.lower() == 'h85':
+        client.send_message(message.chat.id, 'Я не боюсь того, кто изучает 10,000 различных ударов. Я боюсь того, кто изучает один удар 10,000 раз.')
+    elif message.text.lower() == 'h86':
+        client.send_message(message.chat.id, 'Лишь утратив всё до конца, мы обретаем свободу')
+    elif message.text.lower() == 'h87':
+        client.send_message(message.chat.id, 'Тогда лишь двое тайну соблюдают, Когда один из них её не знает.')
+    elif message.text.lower() == 'h88':
+        client.send_message(message.chat.id, 'Tout vient à point à celui qui sait attendre - Всё приходит в своё время для тех, кто умеет ждать.')
+    elif message.text.lower() == 'h89':
+        client.send_message(message.chat.id, 'Где глупость — образец, там разум — безумие.')
+    elif message.text.lower() == 'h90':
+        client.send_message(message.chat.id, 'Есть дороги, которые нужно пройти в одиночку.')
+    elif message.text.lower() == 'h91':
+        client.send_message(message.chat.id, 'На одно мгновение наши жизни встретились, наши души соприкоснулись.')
+    elif message.text.lower() == 'h92':
+        client.send_message(message.chat.id, 'Чем больше человек молчит, тем больше он начинает говорить разумно.')
+    elif message.text.lower() == 'h93':
+        client.send_message(message.chat.id, 'Любовь — это не решение. Это чувство. Если бы мы могли решать, кого любить, все было бы гораздо проще. Но куда менее волшебно.')
+    elif message.text.lower() == 'h94':
+        client.send_message(message.chat.id, 'Лучшая реакция на вражескую критику — улыбнуться и забыть.')
+    elif message.text.lower() == 'h95':
+        client.send_message(message.chat.id, 'В каждом человеке есть солнце. Только дайте ему светить.')
+    elif message.text.lower() == 'h96':
+        client.send_message(message.chat.id, 'Дружелюбие можно изобразить. А вот с умом, к сожалению, такой фокус не пройдет.')
+    elif message.text.lower() == 'h97':
+        client.send_message(message.chat.id, 'Если прошлое не отпускает, то оно ещё не прошло!')
+    elif message.text.lower() == 'h98':
+        client.send_message(message.chat.id, 'Всякая любовь хочет быть вечной, в этом и состоит её вечная мука.')
+    elif message.text.lower() == 'h99':
+        client.send_message(message.chat.id, 'Зачем же гнаться по следам того, что уже давно окончено?')
+    elif message.text.lower() == 'h100':
+        client.send_message(message.chat.id, 'Один из плюсов прошлого в том, что оно в прошлом.')
+    elif message.text.lower() == 'i':
+    	client.send_message(message.chat.id, 'веди i с одним из чисел до 216 например-i34,i1,i13')
+    elif message.text.lower() == 'i1':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/1wb3a5p9lz211.jpg', 'rb'))
+    elif message.text.lower() == 'i2':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/02.jpg', 'rb'))
+    elif message.text.lower() == 'i3':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/2aaf7f75f5bad85135c5349e04ee0a96.jpg', 'rb'))
+    elif message.text.lower() == 'i4':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/2eb8fd5533f23a60c57bcdca732d72e9.jpg', 'rb'))
+    elif message.text.lower() == 'i5':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/3e87bccd1e45122036d9ad6cafd4a288.jpg', 'rb'))
+    elif message.text.lower() == 'i6':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/3K9KSVq.jpg', 'rb'))
+    elif message.text.lower() == 'i7':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/4rp8Y20.jpg', 'rb'))
+    elif message.text.lower() == 'i8':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/5fef54e5aabc4600e721bff113993978.jpg', 'rb'))
+    elif message.text.lower() == 'i9':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/6e81f6587a8d1d8c41f23d54ca15199d.jpg', 'rb'))
+    elif message.text.lower() == 'i10':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/7dac57e79bf7e18531058cc5ded0e93b.jpg', 'rb'))
+    elif message.text.lower() == 'i11':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/8c1f49e9c24c7027f8df2be7661b26a0.jpg', 'rb'))
+    elif message.text.lower() == 'i12':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/9-98346_stalker-wallpaper-1522.jpg', 'rb'))
+    elif message.text.lower() == 'i13':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/9a63d2115edba76c899e4136c2335a76.jpg', 'rb'))
+    elif message.text.lower() == 'i14':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/9c12e85c6ec3d05333dd3de8271dde77.jpg', 'rb'))
+    elif message.text.lower() == 'i15':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/34bb745e74e471e399a84af50401818e.jpg', 'rb'))
+    elif message.text.lower() == 'i16':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/39e01a0935795de01971b23ad3be513a.jpg', 'rb'))
+    elif message.text.lower() == 'i17':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/43cfbbd50d318b64de25eb7c97ba3503.jpg', 'rb'))
+    elif message.text.lower() == 'i18':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/49c3da27f8218949c84ef486f7ece10d.jpg', 'rb'))
+    elif message.text.lower() == 'i19':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/55f9594777b031a11fce28b7dde105da.jpg', 'rb'))
+    elif message.text.lower() == 'i20':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/58c00e59a0d5c4d155635b4971adec05.jpg', 'rb'))
+    elif message.text.lower() == 'i21':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/65b3affd26965db771ec84d0e98e0557.jpg', 'rb'))
+    elif message.text.lower() == 'i22':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/76wrjl.jpg', 'rb'))
+    elif message.text.lower() == 'i23':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/078d73dfaa1af18b8ddd826ae15abea3.jpg', 'rb'))
+    elif message.text.lower() == 'i24':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/79-799086_shadow-of-the-tomb-raider.jpg', 'rb'))
+    elif message.text.lower() == 'i25':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/92f15206673a98da8465eb1831e521e5.jpg', 'rb'))
+    elif message.text.lower() == 'i26':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/539bb1679d5ac33c0727115caf21ddba.jpg', 'rb'))
+    elif message.text.lower() == 'i27':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/553d3254752e5150676b4fac82c9d714.jpg', 'rb'))
+    elif message.text.lower() == 'i28':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/630c215fd588c5e78953c868f6650f1a.jpg', 'rb'))
+    elif message.text.lower() == 'i29':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/809aef03d9073c85893f4d95e65532fa.jpg', 'rb'))
+    elif message.text.lower() == 'i30':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/910d2dd1ab6c82fc75309b80ef1719b7.jpg', 'rb'))
+    elif message.text.lower() == 'i31':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/3643f1aaace2d4dee1122fe068f1755c.jpg', 'rb'))
+    elif message.text.lower() == 'i32':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/7066f1eec4ebe8bb7df8250edcf21673.jpg', 'rb'))
+    elif message.text.lower() == 'i33':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/10586-Mass_Effect.jpg', 'rb'))
+    elif message.text.lower() == 'i34':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/130807.jpg', 'rb'))
+    elif message.text.lower() == 'i35':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/142939.jpg', 'rb'))
+    elif message.text.lower() == 'i36':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/147562.jpg', 'rb'))
+    elif message.text.lower() == 'i37':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/147601.jpg', 'rb'))
+    elif message.text.lower() == 'i38':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/170860-Starcraft_II-StarCraft_II__Heart_Of_The_Swarm.jpg', 'rb'))
+    elif message.text.lower() == 'i39':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/185916.jpg', 'rb'))
+    elif message.text.lower() == 'i40':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/192865-fantasy_art-knights-Mount_and_Blade.jpg', 'rb'))
+    elif message.text.lower() == 'i41':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/192911.jpg', 'rb'))
+    elif message.text.lower() == 'i42':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/246228.jpg', 'rb'))
+    elif message.text.lower() == 'i43':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/264937-Sepik.jpg', 'rb'))
+    elif message.text.lower() == 'i44':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/319960.jpg', 'rb'))
+    elif message.text.lower() == 'i45':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/322720-Grand_Theft_Auto_V.jpg', 'rb'))
+    elif message.text.lower() == 'i46':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/343860-sepik_1920x1080.jpg', 'rb'))
+    elif message.text.lower() == 'i47':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/415518.jpg', 'rb'))
+    elif message.text.lower() == 'i48':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/425160.jpg', 'rb'))
+    elif message.text.lower() == 'i49':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/429449.jpg', 'rb'))
+    elif message.text.lower() == 'i50':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/463818ffd4e3a0af1bf5949bd923ac83.jpg', 'rb'))
+    elif message.text.lower() == 'i51':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/474917.jpg', 'rb'))
+    elif message.text.lower() == 'i52':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/520663bff4ed2240855fb6cde459b4d0.jpg', 'rb'))
+    elif message.text.lower() == 'i53':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/522085.jpg', 'rb'))
+    elif message.text.lower() == 'i54':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/590324-Assassins_Creed_10_years-Assassin039s_Creed-Ubisoft.jpg', 'rb'))
+    elif message.text.lower() == 'i55':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/681867.jpg', 'rb'))
+    elif message.text.lower() == 'i56':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/711282-free-download-starcraft-2-marine-wallpaper-1920x1080.jpg', 'rb'))
+    elif message.text.lower() == 'i57':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/715904.jpg', 'rb'))
+    elif message.text.lower() == 'i58':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/744049.jpg', 'rb'))
+    elif message.text.lower() == 'i59':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/749638.jpg', 'rb'))
+    elif message.text.lower() == 'i60':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/759555.jpg', 'rb'))
+    elif message.text.lower() == 'i61':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/759559.jpg', 'rb'))
+    elif message.text.lower() == 'i62':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/770436.jpg', 'rb'))
+    elif message.text.lower() == 'i63':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/784934.jpg', 'rb'))
+    elif message.text.lower() == 'i64':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/842451.jpg', 'rb'))
+    elif message.text.lower() == 'i65':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/853424.jpg', 'rb'))
+    elif message.text.lower() == 'i66':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/853474.jpg', 'rb'))
+    elif message.text.lower() == 'i67':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/882385.jpg', 'rb'))
+    elif message.text.lower() == 'i68':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/889323 (1).jpg', 'rb'))
+    elif message.text.lower() == 'i69':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/926734.jpg', 'rb'))
+    elif message.text.lower() == 'i70':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/949321.jpg', 'rb'))
+    elif message.text.lower() == 'i71':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/954457.jpg', 'rb'))
+    elif message.text.lower() == 'i72':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/982098.jpg', 'rb'))
+    elif message.text.lower() == 'i73':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/1368836.jpg', 'rb'))
+    elif message.text.lower() == 'i74':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/1482238.jpg', 'rb'))
+    elif message.text.lower() == 'i75':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/1702187.jpg', 'rb'))
+    elif message.text.lower() == 'i76':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/1864003.jpg', 'rb'))
+    elif message.text.lower() == 'i77':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/2020589.jpg', 'rb'))
+    elif message.text.lower() == 'i78':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/2261158.jpg', 'rb'))
+    elif message.text.lower() == 'i79':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/2323564.jpg', 'rb'))
+    elif message.text.lower() == 'i80':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/2355620.jpg', 'rb'))
+    elif message.text.lower() == 'i81':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/2388319.jpg', 'rb'))
+    elif message.text.lower() == 'i82':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/2541966.jpg', 'rb'))
+    elif message.text.lower() == 'i83':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/5876146d871b221e77c0b008ac203651.jpg', 'rb'))
+    elif message.text.lower() == 'i84':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/8350897.png', 'rb'))
+    elif message.text.lower() == 'i85':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/1771867369_preview_164649013-portal-wallpapers.jpg', 'rb'))
+    elif message.text.lower() == 'i86':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/4150292423771764efdeaaf4c6cd330b.jpg', 'rb'))
+    elif message.text.lower() == 'i87':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/a3c79602f6a6505fd46797266f466dc1.jpg', 'rb'))
+    elif message.text.lower() == 'i88':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/a71e70f0be92196f8567e6806da06738.png', 'rb'))
+    elif message.text.lower() == 'i89':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/a854d24adc86fb5f3ef089cbc02c7469.jpg', 'rb'))
+    elif message.text.lower() == 'i90':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/a6105f2351783c6df7e6f3efa60d588f.jpg', 'rb'))
+    elif message.text.lower() == 'i91':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/a6142af7d12c3f7774662f30c235581c.jpg', 'rb'))
+    elif message.text.lower() == 'i92':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/a882674656133c0eae82d43a211c3b2d-700.jpg', 'rb'))
+    elif message.text.lower() == 'i93':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/af96036d6b92864d84ed04ea2276e4f6.jpg', 'rb'))
+    elif message.text.lower() == 'i94':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/BF_EEDE_WalllPaper_1920x1080_v2.jpg', 'rb'))
+    elif message.text.lower() == 'i95':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/bfb215129baef1ef8210519e313cbcc6.jpg', 'rb'))
+    elif message.text.lower() == 'i96':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/c9e483383b2aa1fc6dffdd61a99b4f60.jpg', 'rb'))
+    elif message.text.lower() == 'i97':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/c22968b4d60a8011a6bc82a7ebb4f97c.jpg', 'rb'))
+    elif message.text.lower() == 'i98':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/ccbe1aeaf32fc5c6e99e39ab06b3b411.jpg', 'rb'))
+    elif message.text.lower() == 'i99':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/cd5ed8052334128037bd77e672f4503b.png', 'rb'))
+    elif message.text.lower() == 'i100':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/cd969be9e3c9275d9a89a5c90cb0edb5.jpg', 'rb'))
+    elif message.text.lower() == 'i101':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/crossout-2018-4f.jpg', 'rb'))
+    elif message.text.lower() == 'i102':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/crysis-2-4k-p3.jpg', 'rb'))
+    elif message.text.lower() == 'i103':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/d5158982d7bb168c1a9e9ce1698bbbb8.jpg', 'rb'))
+    elif message.text.lower() == 'i104':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/db7a4489ee7fa421f70c55024df48834.jpg', 'rb'))
+    elif message.text.lower() == 'i105':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/dead-space-2019-4k_1554244347.jpg', 'rb'))
+    elif message.text.lower() == 'i106':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/df66a74b7486d5f3647ba76abcfd2c99.jpg', 'rb'))
+    elif message.text.lower() == 'i107':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/dying-light-2-uhdpaper.com-4K-7.jpg', 'rb'))
+    elif message.text.lower() == 'i108':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/e1a6462bbcb8e20be485b02dd8d5f161.jpg', 'rb'))
+    elif message.text.lower() == 'i109':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/e26fba8d9f2102d2dd8699c80b8ddc78.jpg', 'rb'))
+    elif message.text.lower() == 'i110':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/e94eb08a44cb79036cf5ffdb5c1bfae2.jpg', 'rb'))
+    elif message.text.lower() == 'i111':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/e35664fbe4bb2f60a341734bb9fd3f76.png', 'rb'))
+    elif message.text.lower() == 'i112':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/eaf24c6a8740345a6c52f4dd75129e00.jpg', 'rb'))
+    elif message.text.lower() == 'i113':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/f6b7bdb0ba4d7c0e581fe21e03277a4d.jpg', 'rb'))
+    elif message.text.lower() == 'i114':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/f9af6ce820228221404a8db35814b45c.jpg', 'rb'))
+    elif message.text.lower() == 'i115':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/fallout-76-1920x1080_79856-mm-90.jpg', 'rb'))
+    elif message.text.lower() == 'i116':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/fantastic-need-for-speed-wallpaper-1.jpg', 'rb'))
+    elif message.text.lower() == 'i117':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/fb8f836b0219d511146d0f2fb9cd95b8.jpg', 'rb'))
+    elif message.text.lower() == 'i118':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/ff7d3a2dab7c51d498611c169a8c1c62-700.jpg', 'rb'))
+    elif message.text.lower() == 'i119':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/frontlines-fuel-of-war-wallpaper-7.jpg', 'rb'))
+    elif message.text.lower() == 'i120':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/grand-theft-auto-v-sunset-artwork-lu-1920x1080.jpg', 'rb'))
+    elif message.text.lower() == 'i121':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/gta_v_video_game-1920x1080.jpg', 'rb'))
+    elif message.text.lower() == 'i122':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/gta-san-andreas-qhd.jpg', 'rb'))
+    elif message.text.lower() == 'i123':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/GTA-V-city-buildings-art-picture_1920x1080.jpg', 'rb'))
+    elif message.text.lower() == 'i124':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/Hd-Game-Wallpapers-HD-Game-HD-Wallpapers-Backgrounds.jpg', 'rb'))
+    elif message.text.lower() == 'i125':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/Homefront-The-Revolution-1080-Wallpaper-2.jpg', 'rb'))
+    elif message.text.lower() == 'i126':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/ip23Bx7.jpg', 'rb'))
+    elif message.text.lower() == 'i127':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/k3VRw2.jpg', 'rb'))
+    elif message.text.lower() == 'i128':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/mass effect wallpaper 24 - 1920x1080.jpg', 'rb'))
+    elif message.text.lower() == 'i129':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/mass-effect-2-16685-1920x1080.jpg', 'rb'))
+    elif message.text.lower() == 'i130':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/mass-effect-3-28512-1920x1080.jpg', 'rb'))
+    elif message.text.lower() == 'i131':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/mass-effect-andromeda-hd-2-qu.jpg', 'rb'))
+    elif message.text.lower() == 'i132':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/maxresdefault.jpg', 'rb'))
+    elif message.text.lower() == 'i133':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/metro-2033-redux_1535967055.jpg', 'rb'))
+    elif message.text.lower() == 'i134':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/metro-2033-redux-4k-gn-2560x1440.jpg', 'rb'))
+    elif message.text.lower() == 'i135':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/my-friend-pedro-uhdpaper.com-4K-1.jpg', 'rb'))
+    elif message.text.lower() == 'i136':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/RUwpg4.jpg', 'rb'))
+    elif message.text.lower() == 'i137':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/rxXhHYr.jpg', 'rb'))
+    elif message.text.lower() == 'i138':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/saints-row-iv.jpg', 'rb'))
+    elif message.text.lower() == 'i139':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/shadow-of-the-tomb-raider-jaguar.jpg', 'rb'))
+    elif message.text.lower() == 'i140':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/skyrim-wallpaper-3.jpg', 'rb'))
+    elif message.text.lower() == 'i141':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/sniper-ghost-warrior-2-15981-1920x1080.jpg', 'rb'))
+    elif message.text.lower() == 'i142':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/Spec-Ops-The-Line_1920x1200.jpg', 'rb'))
+    elif message.text.lower() == 'i143':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/Stalker-2-Desktop-Wallpaper-1920x1080-2.jpg', 'rb'))
+    elif message.text.lower() == 'i144':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/Stalker-2-Full-HD-Wallpaper-1920x1080-1-1280x720.jpg', 'rb'))
+    elif message.text.lower() == 'i145':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/stalker-2-ti-1920x1080.jpg', 'rb'))
+    elif message.text.lower() == 'i146':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/stalker-artifact.jpg', 'rb'))
+    elif message.text.lower() == 'i147':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/stalker-shadow-of-chernobyl-last-stand.jpg', 'rb'))
+    elif message.text.lower() == 'i148':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/sun-rays-in-the-green-forest-in-firewatch-51056-1920x1080.jpg', 'rb'))
+    elif message.text.lower() == 'i149':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/Tadbq6a.jpg', 'rb'))
+    elif message.text.lower() == 'i150':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/the-incredible-hulk-1k-3840x2400.jpg', 'rb'))
+    elif message.text.lower() == 'i151':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/thumb-1920-82231.jpg', 'rb'))
+    elif message.text.lower() == 'i152':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/thumb-1920-90373.jpg', 'rb'))
+    elif message.text.lower() == 'i153':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/thumb-1920-181610.jpg', 'rb'))
+    elif message.text.lower() == 'i154':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/thumb-1920-235671.jpg', 'rb'))
+    elif message.text.lower() == 'i155':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/thumb-1920-242993.jpg', 'rb'))
+    elif message.text.lower() == 'i156':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/thumb-1920-312131.jpg', 'rb'))
+    elif message.text.lower() == 'i157':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/thumb-1920-395720.jpg', 'rb'))
+    elif message.text.lower() == 'i158':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/thumb-1920-414434.jpg', 'rb'))
+    elif message.text.lower() == 'i159':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/thumb-1920-422983.jpg', 'rb'))
+    elif message.text.lower() == 'i161':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/thumb-1920-424437.png', 'rb'))
+    elif message.text.lower() == 'i162':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/thumb-1920-509945.jpg', 'rb'))
+    elif message.text.lower() == 'i163':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/thumb-1920-513009.jpg', 'rb'))
+    elif message.text.lower() == 'i164':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/thumb-1920-560849.jpg', 'rb'))
+    elif message.text.lower() == 'i165':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/thumb-1920-567503.jpg', 'rb'))
+    elif message.text.lower() == 'i166':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/thumb-1920-581828.jpg', 'rb'))
+    elif message.text.lower() == 'i167':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/thumb-1920-594351.jpg', 'rb'))
+    elif message.text.lower() == 'i168':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/thumb-1920-595852.jpg', 'rb'))
+    elif message.text.lower() == 'i169':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/thumb-1920-596305.jpg', 'rb'))
+    elif message.text.lower() == 'i170':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/thumb-1920-597965.jpg', 'rb'))
+    elif message.text.lower() == 'i171':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/thumb-1920-656603.jpg', 'rb'))
+    elif message.text.lower() == 'i172':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/thumb-1920-673903.jpg', 'rb'))
+    elif message.text.lower() == 'i173':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/thumb-1920-676369.jpg', 'rb'))
+    elif message.text.lower() == 'i174':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/thumb-1920-679513.jpg', 'rb'))
+    elif message.text.lower() == 'i175':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/thumb-1920-761517.jpg', 'rb'))
+    elif message.text.lower() == 'i176':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/thumb-1920-849437.jpg', 'rb'))
+    elif message.text.lower() == 'i177':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/thumb-1920-887431.png', 'rb'))
+    elif message.text.lower() == 'i178':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/thumb-1920-926738.jpg', 'rb'))
+    elif message.text.lower() == 'i179':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/thumb-1920-927077.jpg', 'rb'))
+    elif message.text.lower() == 'i180':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/thumb-1920-927080.jpg', 'rb'))
+    elif message.text.lower() == 'i181':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/thumb-1920-927868.png', 'rb'))
+    elif message.text.lower() == 'i182':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/thumb-1920-939737.jpg', 'rb'))
+    elif message.text.lower() == 'i183':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/thumb-1920-1018513.jpg', 'rb'))
+    elif message.text.lower() == 'i184':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/thumb-1920-1039553.jpg', 'rb'))
+    elif message.text.lower() == 'i185':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/thumb-1920-1050003.png', 'rb'))
+    elif message.text.lower() == 'i186':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/thumb-1920-1066487.jpg', 'rb'))
+    elif message.text.lower() == 'i187':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/tomb_raider_2013___wallpaper_package_pose_3_by_atomicxmario_d6364xr-fullview.jpg', 'rb'))
+    elif message.text.lower() == 'i188':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/tomswallpapers.com-22890.jpg', 'rb'))
+    elif message.text.lower() == 'i189':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/wallhaven-eod1kw.jpg', 'rb'))
+    elif message.text.lower() == 'i190':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/wallpaper_tom_clancys_rainbow_six_siege_-_operation_shifting_tides_01_1920x1080.jpg', 'rb'))
+    elif message.text.lower() == 'i191':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/wallpapersden.com_crossout-2019_5120x2880.jpg', 'rb'))
+    elif message.text.lower() == 'i192':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/wallpapersden.com_crysis-remastered-game_1920x1080.jpg', 'rb'))
+    elif message.text.lower() == 'i193':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/wallpapersden.com_dying-light-bad-blood_3705x2041.jpg', 'rb'))
+    elif message.text.lower() == 'i194':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/wallpapersden.com_gas-mask-tom-clancys-rainbow-six-siege_1920x1080.jpg', 'rb'))
+    elif message.text.lower() == 'i195':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/wallpapersden.com_gta-v-video-game_1920x1080.jpg', 'rb'))
+    elif message.text.lower() == 'i196':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/wallpapersden.com_post-apocalyptic-in-stalker-2_1920x1080.jpg', 'rb'))
+    elif message.text.lower() == 'i197':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/wallpapersden.com_sniper-ghost-warrior-contracts_1920x1080.jpg', 'rb'))
+    elif message.text.lower() == 'i198':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/war-thunder-planes-art-4k-db.jpg', 'rb'))
+    elif message.text.lower() == 'i199':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/Watch-Dogs-2-video-game-school-bus_1920x1080.jpg', 'rb'))
+    elif message.text.lower() == 'i200':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/watch-dogs-legion-logo-uhdpaper.com-4K-2.jpg', 'rb'))
+    elif message.text.lower() == 'i201':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/wJJpIqx.jpg', 'rb'))
+    elif message.text.lower() == 'i202':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/world-war-z-1.jpg', 'rb'))
+    elif message.text.lower() == 'i203':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/world-war-z-game-characters-uhdpaper.com-4K-1.jpg', 'rb'))
+    elif message.text.lower() == 'i204':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/wp476567.jpg', 'rb'))
+    elif message.text.lower() == 'i205':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/wp1841016.jpg', 'rb'))
+    elif message.text.lower() == 'i205':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/wp1879136.jpg', 'rb'))
+    elif message.text.lower() == 'i206':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/wp2357581.jpg', 'rb'))
+    elif message.text.lower() == 'i207':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/wp2699069.jpg', 'rb'))
+    elif message.text.lower() == 'i208':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/wp2999315.png', 'rb'))
+    elif message.text.lower() == 'i209':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/wp3073540.jpg', 'rb'))
+    elif message.text.lower() == 'i210':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/wp3126742.jpg', 'rb'))
+    elif message.text.lower() == 'i211':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/wp3972465.jpg', 'rb'))
+    elif message.text.lower() == 'i212':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/wp3972466.jpg', 'rb'))
+    elif message.text.lower() == 'i213':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/wp3972469.jpg', 'rb'))
+    elif message.text.lower() == 'i214':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/ws_Homefront_1920x1080.jpg', 'rb'))
+    elif message.text.lower() == 'i215':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/xrEngine_2017-03-27_12-59-08-38.1.png', 'rb'))
+    elif message.text.lower() == 'i216':
+    	client.send_photo(message.chat.id, open('C:/Users/Администрaтор/Desktop/ФОТО ФОТО И ЕЩЕ РАЗ КАРТИНКИ/zHro6q.jpg', 'rb'))
+    elif message.text.lower() == 'd':
+        client.send_message(message.chat.id, (random.choice(random_item)) ) 
+    elif message.text.lower() == 'b':
+        client.send_message(message.chat.id, w )
+    elif message.text.lower() == 'f':
+    	client.send_message(message.chat.id, 'Ты можешь написать мне:\nпривет \nкак дела? \n кто тебя создал? \n как тебя зовут?\n сколько тебе лет? \nпока \n Да согласен моловато но все вопросы к придурку который меня создавал)')
+    elif message.text.lower() == 'e':	
+        client.send_message(message.chat.id, '    ОЗВУЧКА ТЕКСТА ОНЛАЙН\nhttps://apihost.ru/voice \n ВРЕМЕННАЯ GMAIL ПОЧТА \n https://temp-mail.org/uk/?__cf_chl_jschl_tk__=87312f8ecb9b881d41a1e4123d944991733be379-1602228326-0-AcAvIRf3yAugDtwGEh-bkcoIdSPwMpgNazm4Dy2zQ1m3JJRrt2UjTW7AuBwpuQAVduGVHWWKh1VU7H8Bb8GyrfnEhN7AslWWAb0-eaFYXAHbybYjQYgKl7L3yLN4vsWoj5ioSKOHOQze2gFa0Gp-VPbUEHD0bXwxdnAC7mkzLilH6WyzOj9GNk2A37AfdV4QIEUAEHrRhkur3XsVUk7DooyNzTGcsMHhT0JZIX3yhdj5Ud6GijGeNOpY5EbZs2G_ByQPlSb1n7h6Kxs3y2x9eTt--Q367rogA81YINMoeDlUVLCwN9M6De863eGLYrKkSEFNGThB8UtvmIVb4mdWztI \n УЗНАТЬ IP \nhttps://2ip.ru/geoip/')
+    elif message.text.lower() == 'g':
+        client.send_message(message.chat.id,'У меня от тебя нет секрктов😘' )
+    elif message.text.lower() == '/start':
+    	client.send_message(message.chat.id, 'Так-так-так-тааак... Значит ты мой новый друг? \n Ну давай знакомится я Rab а ты... \nпофиг. Значит слушай и мотай на ус мои функции которые тебе надо знать: \n"help" - там я тебе все подробно обьясню.')
+    
+    else: client.send_message(message.chat.id, 'Эмм... не понял..')
+
+client.polling(none_stop = True, interval = 0)
