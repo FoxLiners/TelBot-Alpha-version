@@ -6,7 +6,7 @@ import pyowm
 
 from telebot import types
 
-owm = pyowm.OWM('f9ace149b677768e6990bf88fdcf81cb')
+owm = pyowm.OWM('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx')
 
 client = telebot.TeleBot('1232439610:AAF46UnuE8E-OaKU8sxNnFhTdm67xsYBCvw')
 
