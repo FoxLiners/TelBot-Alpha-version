@@ -8,7 +8,7 @@ from telebot import types
 
 owm = pyowm.OWM('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx')
 
-client = telebot.TeleBot('1232439610:AAF46UnuE8E-OaKU8sxNnFhTdm67xsYBCvw')
+client = telebot.TeleBot('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx')
 
 smile1 = '😁'
 smile2 = '😃'
